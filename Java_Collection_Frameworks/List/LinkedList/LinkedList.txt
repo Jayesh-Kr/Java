@@ -1,0 +1,118 @@
+** LinkedList
+A LinkedList is a linear data structure where elements are not stored in contiguous memory locations. Instead, each element (called a node) contains a reference (or link) to the next element in the sequence. This allows for efficient insertion and deletion of elements.
+
+Node
+A node in a LinkedList typically contains two parts:
+
+Data: The value or information contained in the node.
+Next: A reference to the next node in the LinkedList.
+Here's a simple representation of a node in Java:
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
+
+
+** Doubly LinkedList
+A Doubly LinkedList is a type of LinkedList where each node contains references to both the next and the previous nodes. This allows traversal in both directions (forward and backward).
+
+Here's a simple representation of a node in a Doubly LinkedList in Java:
+
+class DoublyNode {
+    int data;
+    DoublyNode next;
+    DoublyNode prev;
+
+    DoublyNode(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+
+
+
+** Circular LinkedList
+A Circular LinkedList is a type of LinkedList where the last node points back to the first node, forming a circle. This can be implemented for both singly and doubly linked lists.
+
+Here's a simple representation of a node in a Circular LinkedList in Java:
+
+class CircularNode {
+    int data;
+    CircularNode next;
+
+    CircularNode(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
+
+
+** LinkedList in Java
+Java provides a built-in LinkedList class as part of the java.util package. This class implements the List interface and provides methods to perform various operations like insertion, deletion, and traversal.
+
+Here's an example of how to use the LinkedList class in Java:
+
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+
+        // Adding elements
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        // Inserting elements at specific positions
+        list.add(1, 4); // Inserts 4 at index 1
+
+        // Removing elements
+        list.remove(2); // Removes element at index 2
+
+        // Traversing the list
+        for (int element : list) {
+            System.out.println(element);
+        }
+    }
+}
+
+
+The LinkedList class in Java is a doubly linked list, which means each node has references to both the next and the previous nodes. This allows for efficient insertion and deletion from both ends of the list.
+
+Summary
+LinkedList: A linear data structure with nodes containing data and a reference to the next node.
+Doubly LinkedList: Each node has references to both the next and the previous nodes.
+Circular LinkedList: The last node points back to the first node, forming a circle.
+LinkedList in Java: A built-in class in the java.util package that implements a doubly linked list.
+
+
+** 
+ * The LinkedList class is part of the Java Collection Framework and implements
+ * the List interface. It allows for the storage of elements in a doubly-linked list.
+ * 
+ * Key features of LinkedList:
+ * - Elements can be added or removed from both ends of the list.
+ * - It provides methods to perform operations such as insertion, deletion, and traversal.
+ * - It allows for null elements.
+ * - It is not synchronized, so it is not thread-safe without external synchronization.
+ * 
+ * Usage example:
+ * LinkedList<String> list = new LinkedList<>();
+ * list.add("Element1");
+ * list.add("Element2");
+ * 
+ * Note: For better performance in scenarios where frequent insertions and deletions
+ * are required, LinkedList is preferred over ArrayList.
+**

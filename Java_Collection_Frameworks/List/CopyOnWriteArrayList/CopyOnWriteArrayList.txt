@@ -1,0 +1,10 @@
+
+`CopyOnWriteArrayList` is a thread-safe variant of `ArrayList` in which all mutative operations (such as `add`, `set`, and `remove`) are implemented by making a fresh copy of the underlying array. This means that the array is copied every time it is modified, which can be costly in terms of performance for large lists. However, it provides a significant advantage in concurrent programming because it allows for safe iteration over the list without requiring explicit synchronization.
+
+Key points about `CopyOnWriteArrayList`:
+1. **Thread Safety**: It is designed to be thread-safe, meaning multiple threads can read from the list concurrently without any synchronization.
+2. **Immutability of Iterators**: Iterators returned by `CopyOnWriteArrayList` do not reflect changes to the list after the iterator was created. This means that the iterator is effectively immutable.
+3. **Performance**: While read operations are typically fast and do not require locking, write operations (such as adding or removing elements) are more expensive due to the need to copy the entire array.
+4. **Use Cases**: It is particularly useful in scenarios where the list is read frequently and modified infrequently, such as in event notification systems or caching.
+
+Remember, `CopyOnWriteArrayList` is part of the `java.util.concurrent` package, which provides various utilities for concurrent programming in Java.

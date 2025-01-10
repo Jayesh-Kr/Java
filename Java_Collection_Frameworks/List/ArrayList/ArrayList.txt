@@ -1,0 +1,27 @@
+ArrayList is a resizable array implementation of the List interface. It provides a dynamic array that can grow as needed. Here are some key points about ArrayList:
+
+- It allows duplicate elements.
+- It maintains the insertion order.
+- It is not synchronized, which means it is not thread-safe.
+- It provides random access to elements with O(1) time complexity.
+- It is part of the Java Collections Framework and is found in the java.util package.
+
+
+Time Complexity :-
+
+- Access: O(1)
+- Search: O(n)
+- Insertion: O(n)
+- Deletion: O(n)
+- Iteration: O(n)
+
+
+
+// --------------------------------------------------------------------------------//
+The line of code - It is not synchronized, which means it is not thread-safe. is a comment that provides important information about the ArrayList class in Java. Specifically, it highlights a key characteristic of ArrayList regarding its thread safety.
+
+In Java, synchronization is a mechanism that ensures that only one thread can access a resource at a time. This is crucial in multi-threaded environments where multiple threads might try to modify the same data concurrently, leading to inconsistent or unpredictable results. When a class or method is synchronized, it means that it has built-in mechanisms to handle concurrent access, ensuring that the data remains consistent and preventing race conditions.
+
+The comment indicates that ArrayList is not synchronized, meaning it does not have these built-in mechanisms for handling concurrent access. As a result, if multiple threads try to modify an ArrayList simultaneously, it can lead to data corruption or other unexpected behavior. This makes ArrayList not thread-safe, and special care must be taken when using it in a multi-threaded environment.
+
+To safely use ArrayList in a multi-threaded context, you can manually synchronize the code that accesses the ArrayList or use other thread-safe alternatives provided by the Java Collections Framework, such as Vector or Collections.synchronizedList(new ArrayList<>()). These alternatives ensure that the necessary synchronization is in place to handle concurrent access safely.
