@@ -1,0 +1,27 @@
+** LinkedHashMap
+LinkedHashMap is a part of the Java Collections Framework and is an implementation of the Map interface. It extends HashMap and maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is typically the order in which keys were inserted into the map (insertion-order). This makes LinkedHashMap predictable in terms of iteration order.
+
+** Key Characteristics of LinkedHashMap:
+Order of Elements: Maintains insertion order. This means that when you iterate over the keys, values, or entries, they will be returned in the order they were added.
+Performance: Similar to HashMap in terms of time complexity for basic operations (O(1) for get and put), but slightly slower due to the overhead of maintaining the linked list.
+Access Order: Can be configured to maintain access order instead of insertion order. This means the order of iteration can be based on the order in which entries were last accessed.
+Null Values: Allows one null key and multiple null values, similar to HashMap.
+
+
+Differences Between LinkedHashMap and HashMap
+
+Ordering:
+LinkedHashMap: Maintains a predictable iteration order (insertion-order or access-order).
+HashMap: Does not guarantee any specific iteration order.
+
+Performance:
+LinkedHashMap: Slightly slower than HashMap due to the overhead of maintaining the linked list.
+HashMap: Generally faster for basic operations due to the lack of ordering overhead.
+
+Use Cases:
+LinkedHashMap: Useful when you need a predictable iteration order, such as in caching mechanisms where you might want to maintain access order.
+HashMap: Suitable for general-purpose use where order does not matter.
+
+Memory Overhead:
+LinkedHashMap: Requires more memory due to the additional linked list that maintains the order.
+HashMap: More memory-efficient as it does not maintain any order.

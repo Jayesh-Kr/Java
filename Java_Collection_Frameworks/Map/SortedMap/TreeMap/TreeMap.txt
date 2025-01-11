@@ -1,0 +1,10 @@
+A TreeMap in Java is a part of the Java Collections Framework and is implemented in the java.util package. It is a map implementation that stores key-value pairs in a sorted order based on the natural ordering of its keys or by a comparator provided at map creation time.
+
+Key characteristics of TreeMap:
+
+Sorted Order: The keys in a TreeMap are always sorted either by their natural ordering (if they implement Comparable) or by a specified Comparator.
+NavigableMap Interface: TreeMap implements the NavigableMap interface, which provides methods to navigate through the map, such as lowerEntry, floorEntry, ceilingEntry, and higherEntry.
+Red-Black Tree: Internally, TreeMap uses a Red-Black tree, which is a self-balancing binary search tree. This ensures that basic operations like get, put, remove, etc., have a time complexity of O(log n).
+Null Keys and Values: TreeMap does not allow null keys, but it allows multiple null values.
+Thread Safety: TreeMap is not synchronized. If multiple threads access a TreeMap concurrently and at least one of the threads modifies the map structurally, it must be synchronized externally.
+Common use cases for TreeMap include scenarios where you need to maintain a sorted order of keys, perform range queries, or need efficient navigation methods.

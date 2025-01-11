@@ -1,0 +1,58 @@
+What is WeakHashMap?
+WeakHashMap is a part of the Java Collections Framework and is found in the java.util package. It is a type of Map implementation that uses weak references for its keys. This means that the entries in a WeakHashMap can be garbage collected if the key is no longer in ordinary use (i.e., there are no strong references to the key).
+
+Key Characteristics
+Weak References: The keys in a WeakHashMap are stored as weak references. A weak reference allows the key to be garbage collected when it is no longer referenced elsewhere in the application. This is different from a HashMap, where keys are strongly referenced and thus not eligible for garbage collection as long as the map itself is referenced.
+
+Automatic Removal: When the garbage collector detects that a key is no longer reachable, it will automatically remove the corresponding entry from the WeakHashMap. This helps in preventing memory leaks in applications where keys are no longer needed but the map itself is still in use.
+
+Use Cases: WeakHashMap is particularly useful in scenarios where you need to maintain a cache or a registry of objects without preventing those objects from being garbage collected. For example, it can be used in implementing memory-sensitive caches.
+
+Example Usage
+Here is a simple example to illustrate how WeakHashMap works:
+
+import java.util.Map;
+import java.util.WeakHashMap;
+
+public class WeakHashMapExample {
+    public static void main(String[] args) {
+        Map<String, String> weakHashMap = new WeakHashMap<>();
+
+        String key1 = new String("key1");
+        String key2 = new String("key2");
+
+        weakHashMap.put(key1, "value1");
+        weakHashMap.put(key2, "value2");
+
+        System.out.println("Before GC: " + weakHashMap);
+
+        // Remove strong references
+        key1 = null;
+        key2 = null;
+
+        // Suggest garbage collection
+        System.gc();
+
+        // Wait for a moment to let GC do its work
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("After GC: " + weakHashMap);
+    }
+}
+
+Explanation of the Example
+Creating the Map: We create a WeakHashMap instance.
+Adding Entries: We add two entries to the map with keys key1 and key2.
+Before GC: We print the map contents before garbage collection.
+Removing Strong References: We set the strong references key1 and key2 to null.
+Garbage Collection: We suggest the JVM to perform garbage collection using System.gc().
+After GC: We print the map contents after garbage collection. If the keys were garbage collected, the map should be empty.
+Important Points
+Not Thread-Safe: WeakHashMap is not synchronized. If multiple threads access a WeakHashMap concurrently, and at least one of the threads modifies the map structurally, it must be synchronized externally.
+Performance: The performance of WeakHashMap is generally comparable to HashMap, but the overhead of garbage collection can affect performance in some scenarios.
+Conclusion
+WeakHashMap is a powerful tool for managing memory-sensitive caches and registries. By using weak references for keys, it allows the garbage collector to reclaim memory when keys are no longer in use, helping to prevent memory leaks in long-running applications.

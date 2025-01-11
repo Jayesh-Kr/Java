@@ -1,0 +1,25 @@
+Map does not extends the Collection interface.
+Map is an interface that represents a collection of key-value pairs. It is part of the Java Collections Framework and is used to store data in a way that allows for fast retrieval based on keys. Here are some key points about the Map interface:
+
+Key Characteristics of Map:
+Key-Value Pairs: Each entry in a Map consists of a key and a value. Keys are unique, meaning no two entries can have the same key.
+No Order Guarantee: The Map interface does not guarantee any specific order of the entries. However, some implementations like LinkedHashMap maintain insertion order, and TreeMap maintains a sorted order based on the keys.
+Null Values: Depending on the implementation, a Map can contain null values and a single null key.
+Common Implementations:
+HashMap: This is the most commonly used implementation. It provides constant-time performance for basic operations (get and put), assuming the hash function disperses elements properly among the buckets.
+LinkedHashMap: This implementation maintains a doubly-linked list running through all its entries, which defines the iteration ordering, either insertion-order or access-order.
+TreeMap: This implementation is based on a Red-Black tree and guarantees that the map will be in ascending key order, or according to a specified comparator.
+
+Basic Operations:
+put(K key, V value): Associates the specified value with the specified key in the map.
+get(Object key): Returns the value to which the specified key is mapped, or null if the map contains no mapping for the key.
+remove(Object key): Removes the mapping for a key from this map if it is present.
+containsKey(Object key): Returns true if this map contains a mapping for the specified key.
+containsValue(Object value): Returns true if this map maps one or more keys to the specified value.
+size(): Returns the number of key-value mappings in this map.
+clear(): Removes all of the mappings from this map.
+
+
+Gotchas:
+Hash Collisions: In HashMap, if two keys have the same hash code, they will be stored in the same bucket, which can degrade performance.
+Thread Safety: HashMap is not synchronized. If multiple threads access a HashMap concurrently, and at least one of the threads modifies the map structurally, it must be synchronized externally.

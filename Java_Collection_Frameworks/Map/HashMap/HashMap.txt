@@ -1,0 +1,40 @@
+** HashMap in Java
+A HashMap is a part of the Java Collections Framework and is found in the java.util package. It provides the basic implementation of the Map interface, storing key-value pairs. Here are some detailed aspects of HashMap:
+
+
+Key Characteristics:
+Key-Value Pairs: Stores data in key-value pairs. Each key is unique, and each key maps to exactly one value.
+Hashing: Uses a hash table to store the map. The hash table is an array of buckets, where each bucket can hold multiple entries in case of collisions.
+Null Values: Allows one null key and multiple null values.
+Non-Synchronized: Not thread-safe. If multiple threads access a HashMap concurrently, and at least one of the threads modifies the map structurally, it must be synchronized externally.
+
+
+Time Complexity:
+put(K key, V value): Average case O(1), Worst case O(log n) due to collisions.
+get(Object key): Average case O(1), Worst case O(log n) due to collisions.
+remove(Object key): Average case O(1), Worst case O(log n) due to collisions.
+containsKey(Object key): Average case O(1), Worst case O(log n) due to collisions. 
+containsValue(Object value): Average case O(n)
+size(): O(1)
+
+
+Collisions:
+A collision occurs when two different keys produce the same hash code and thus map to the same bucket in the hash table. HashMap handles collisions using a technique called chaining, where each bucket contains a linked list of entries that map to the same bucket.
+
+
+Why Collisions Do Not Happen When Object is Passed as Key:
+Collisions can still happen when an object is passed as a key, but the likelihood and handling depend on the implementation of the hashCode() and equals() methods of the key object. Here’s why:
+
+hashCode() Method: The hashCode() method of the key object is used to determine the bucket location. A well-implemented hashCode() method distributes keys uniformly across the buckets, minimizing collisions.
+equals() Method: When a collision occurs, the equals() method is used to compare the keys in the same bucket to find the correct entry. If the equals() method is properly implemented, it ensures that the correct key-value pair is retrieved or modified.
+Best Practices to Minimize Collisions:
+Good hashCode() Implementation: Ensure that the hashCode() method distributes keys uniformly across the hash table.
+Proper equals() Implementation: Ensure that the equals() method accurately compares key objects.
+Load Factor: The load factor determines when to resize the hash table. A lower load factor reduces the likelihood of collisions but increases memory usage.
+
+
+Summary:
+HashMap is a key-value pair storage that uses hashing for fast access.
+Time Complexity: Average O(1) for basic operations, but can degrade to O(n) in the worst case due to collisions.
+Collisions: Handled using chaining (linked lists in buckets).
+Object Keys: Collisions can still occur, but proper implementation of hashCode() and equals() methods minimizes and handles them effectively.
