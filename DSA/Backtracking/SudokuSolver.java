@@ -21,7 +21,7 @@ public class SudokuSolver {
 
         // check col
         for(int i =0; i < board.length; i++) {
-            if(board[i][col] == digit)
+            if(board[row][i] == digit)
                 return false;
         }
 
@@ -40,6 +40,7 @@ public class SudokuSolver {
 
         return true;
     }
+    
     public static boolean sudokuSolver(int board[][], int row, int col) {
         if(row == board.length) {
             return true;
@@ -77,7 +78,9 @@ public class SudokuSolver {
                 { 0, 0, 0, 0, 0, 0, 0, 7, 4 },
                 { 0, 0, 5, 2, 0, 6, 3, 0, 0 }
         };
-        sudokuSolver(sudokuBoard,0,0);
-        printBoard(sudokuBoard);
+        if(sudokuSolver(sudokuBoard,0,0))
+            printBoard(sudokuBoard);
+        else    
+            System.out.println("No solution found");
     }
 }
